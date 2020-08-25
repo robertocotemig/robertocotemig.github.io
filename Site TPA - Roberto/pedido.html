@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Pedido</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+			
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/business-casual.css" rel="stylesheet">
+	
+			
+			  <script>
+
+        $(document).ready(function() {
+
+            function limpa_formulário_cep() {
+                // Limpa valores do formulário de cep.
+                $("#rua").val("");
+                $("#bairro").val("");
+                $("#cidade").val("");
+                $("#uf").val("");
+                
+            }
+            
+            //Quando o campo cep perde o foco.
+            $("#cep").blur(function() {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = $(this).val().replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if(validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        $("#rua").val("...");
+                        $("#bairro").val("...");
+                        $("#cidade").val("...");
+                        $("#uf").val("...");
+                        
+
+                        //Consulta o webservice viacep.com.br/
+                        $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+
+                            if (!("erro" in dados)) {
+                                //Atualiza os campos com os valores da consulta.
+                                $("#rua").val(dados.logradouro);
+                                $("#bairro").val(dados.bairro);
+                                $("#cidade").val(dados.localidade);
+                                $("#uf").val(dados.uf);
+                                
+                            } //end if.
+                            else {
+                                //CEP pesquisado não foi encontrado.
+                                limpa_formulário_cep();
+                                alert("CEP não encontrado.");
+                            }
+                        });
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulário_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep();
+                }
+            });
+        });
+
+    </script>
+<script>
+function calcular(nome,telefone,email,escolha,quantidade,valor)
+{
+if(nome == "")
+{alert("Por favor digite o seu nome");}
+else if(telefone == "")
+{alert("Por favor digite o seu telefone");}
+else if(email == "")
+{alert("Por favor digite a email");}
+
+else
+{
+
+if(escolha == "sanduiche")
+{form1.valor.value = quantidade + " Basicão custará R$ " + (10 * quantidade).toFixed(2);
+
+}
+else if(escolha == "snaturais")
+{form1.valor.value = quantidade + " Naturalzin custará R$ " + (20 * quantidade).toFixed(2);
+
+}
+else
+{form1.valor.value = quantidade + " CAIOBA MONSTER custará R$ " + (30 * quantidade).toFixed(2);
+
+}
+}
+}
+</script>
+<script>
+function mascara(i,t){
+   
+   var v = i.value;
+   
+   if(isNaN(v[v.length-1])){
+      i.value = v.substring(0, v.length-1);
+      return;
+	    
+   }
+   if(t == "cep"){
+      i.setAttribute("maxlength", "9");
+      if (v.length == 5) i.value += "-";
+   }
+   }
+   </script>
+<style>
+	
+.formm{background-color: #fff; padding: 20px; border-radius: 20px;}
+	
+</style>
+</head>
+
+<body>
+
+
+    <div class="brand">Hamburguer's Caioba</div>
+    <div class="address-bar">Hamburguer's Caioba | Rua dos Aimores 2043 Funcionarios Belo Horizonte MG Brasil | +55(031) 3484-5683</div>
+
+    <nav class="navbar" role="navigation">
+        <div class="container" style="background: #FFA500; font-size: 11px; width: 1300px">
+		
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Hamburguer's Caioba</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html"><b>Home</b></a>
+                    </li>
+					<li><a href="sobre.html"><b>Sobre</b></a>
+                    </li>
+                    <li><a href="galeria.html"><b>Galeria</b></a>
+                    </li>
+                    <li><a href="pedido.html"><b>Pedido</b></a>
+                    </li>
+					<li><a href="contato.html"><b>Contato</b></a>
+                    </li>
+					<li><a href="cupons.html"><b>Cupons</b></a>
+                    </li>
+					<li><a href="emprego.html"><b>Emprego</b></a>
+                    </li>
+					<li><a href="perguntas.html"><b>Perguntas</b></a>
+                    </li>
+                </ul>
+            </div>
+			
+			
+			
+			
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    
+					
+                    <h2 class="intro-text text-center"><div class="well">Endereço <strong>de Contato</strong></div>
+                    </h2>
+                    
+                </div>
+                <div class="col-md-7">
+                    <!-- Embedded Google Map using an iframe - to select your location find it on Google maps and paste the link as the iframe src. If you want to use the Google Maps API instead then have at it! -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.931182916486!2d-43.94568698508557!3d-19.927304586605246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699e01126783f%3A0x57d9e577f4210e85!2sRua+dos+Aimor%C3%A9s%2C+2043+-+Lourdes%2C+Belo+Horizonte+-+MG%2C+30140-072!5e0!3m2!1spt-BR!2sbr!4v1559744743055!5m2!1spt-BR!2sbr" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-5">
+				
+			
+                    <p>Telefone: <strong>+55(031) 3484-5683</strong>
+                    </p>
+                    <p>Email: <strong>feedback@caiobaburguer.com</strong>
+                    </p>
+                    <p>Endereço: <strong>Hamburguer's Caioba<br>
+					Rua dos Aimores 2043<br>Funcionarios Belo Horizonte MG Brasil</strong>
+                    </p>
+                    <br>					
+					<img src="img\centro.jpg" clas="img-rouded" alt="" width=300 height=200>
+                
+				</div>
+                <div class="clearfix"></div>
+				
+				
+				
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    
+                    <h2 class="intro-text text-center"><div class="well">Faça seu <strong>Pedido</strong></div>
+                    </h2>
+                    
+                    
+                    
+					<form name = "form1">
+                        <div class="row">
+						<div class="formm">
+                            
+							<p>Faça sua boquinha com a ajuda da Hamburguer's Caioba, a melhor sanduícheria da região, calcule o preço do pedido nos campos abaixo e entraremos em contato:</p>
+							
+							<div class="form-group col-lg-4">
+                            <label>Nome</label>
+                            <input type="text" class="form-control" name = "nome">
+                            </div>
+							
+							<div class="form-group col-lg-3">
+                            <label>Telefone</label>
+                            <input type="tel" class="form-control" name = "telefone">
+                            </div>
+							
+							<div class="form-group col-lg-5">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name = "email">
+                            </div>
+							
+							<div class = "clearfix"></div>
+							
+							<form method="get" action="." name="frmcep">
+        <label>Cep
+        <input autofocus oninput="mascara(this, 'cep')" name="cep" type="text" class="form-control cep-mask" placeholder="00000-000" id="cep" value="" size="10" maxlength="9"
+autocomplete="off" name="customer['cep']"		/></label><br />
+        <label>Rua
+        <input name="rua" class="form-control" type="text" id="rua" size="60" /></label><br />
+        <label>Bairro
+        <input name="bairro" class="form-control" type="text" id="bairro" size="40" /></label><br />
+        <label>Cidade
+        <input name="cidade" class="form-control" type="text" id="cidade" size="40" /></label><br />
+        <label>Estado
+        <input name="uf" class="form-control" type="text" id="uf" size="2" /></label><br />
+        <label>Número
+        <input name="numero" class="form-control" type="number" id="numero" size="8" /></label><br />
+      </form>
+							
+							<div class = "clearfix"></div>
+							
+							<div class="form-group col-lg-6">
+                            <label>Retorno de Pedido</label>
+							<select class="form-control" name = "rpedido" required>
+                            <option value = "Whatsapp">Mensagem de Whatsapp</option>
+                            <option value = "Ligação">Ligação Telefonica</option>
+							<option value = "Email">Email</option>
+                            </select>
+                            </div>
+							
+							<div class="form-group col-lg-6">
+                            <label>Pagamento</label>
+							<select class="form-control" name = "metodopagamento" required>
+                            <option value = "Credito">Cartão de Credito</option>
+                            <option value = "Debito">Cartão de Debito</option>
+							<option value = "Dinheiro">Dinheiro</option>
+                            </select>
+                            </div>
+                            
+							<div class = "clearfix"></div>
+							
+							<div class="form-group col-lg-3"></div>
+							
+							<div class="form-group col-lg-3">
+							
+							<div class="Itens">
+                            <center><label>Escolha</label></center>
+							<select class="form-control" name = "escolha">
+                            <option value = "sanduiche">Basicão</option>
+                            <option value = "snaturais">Naturalzin</option>
+                            <option value = "sartesanais">CAIOBA MONSTER</option>
+                            </select>
+							
+                            </div>
+							</div>
+							
+							<div class="form-group col-lg-3">
+							
+							<div class="Itens">
+                            <center><label>Quantidade</label></center>
+                            <input type="number" class="form-control" name = "quantidade">
+                            </select>
+                            
+							</div>
+							</div>
+							<div class="form-group col-lg-3"></div>
+							<div class = "clearfix"></div>
+							
+							<div class = "clearfix"></div>
+							<div class="form-group col-lg-4"></div>
+							<div class="form-group col-lg-4">
+							<div align = "center">
+							<Label>Valor á Pagar:</label>
+							<input type="text" class="form-control" name = "valor" disabled>
+							
+							</div>
+							</div>
+							<div class="form-group col-lg-1"></div>
+							<div class="form-group col-lg-3">
+							</div>
+							<div class = "clearfix"></div>
+							<div class="form-group col-lg-4"></div>
+							<div class="form-group col-lg-4">
+							<div align = "center">
+							<input type = button value = "Calcular" class = "btn btn-success" onmousedown="calcular(nome.value,telefone.value,email.value,endereco.value,escolha.value,quantidade.value,valor.value)">
+							
+                           <button type="reset" class="btn btn-danger">Limpar</button>
+							</div>
+							</div>
+							<div class="form-group col-lg-4"></div>
+						<div class = "clearfix"></div>
+							
+							</div>
+                            </div>
+							
+							
+                            </div>
+							</div>
+                        </div>
+                    </form>
+					
+                </div>
+            </div>
+        </div>
+
+   
+    <!-- /.container -->
+
+<footer>
+        <div class="container">
+            <div class="row">
+			
+                <div class="col-lg-12 text-center">
+                  <p>Copyright &copy; Roberto (N°:46)</p>
+                </div>
+				
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+    // Activates the Carousel
+    $('.carousel').carousel({
+        interval: 5000
+    })
+    </script>
+
+</body>
+<body onLoad=”document.frmEnviaDados.cep.focus();“>
+</html>

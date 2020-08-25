@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Contato</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/business-casual.css" rel="stylesheet">
+	
+	<script>
+function calcular(nome,telefone,email,endereco,obser)
+{
+if(nome == "")
+{alert("Por favor digite o seu nome");}
+else if(telefone == "")
+{alert("Por favor digite o seu telefone");}
+else if(email == "")
+{alert("Por favor digite a email");}
+else if(endereco == "")
+{alert("Por favor digite a endereço");}
+else if(obser == "")
+{alert("Por favor digite o seu chamado");}
+else
+{
+
+
+{alert("Seu email foi enviado com sucesso");
+form2.reset();
+}
+
+}
+}
+</script>
+<style>
+	
+.formm{background-color: #fff; padding: 20px; border-radius: 20px;}
+	
+</style>
+</head>
+
+<body>
+
+
+    <div class="brand">Hamburguer's Caioba</div>
+    <div class="address-bar">Hamburguer's Caioba | Rua dos Aimores 2043 Funcionarios Belo Horizonte MG Brasil | +55(031) 3484-5683</div>
+
+    <nav class="navbar" role="navigation">
+        <div class="container" style="background: #FFA500; font-size: 11px; width: 1300px">
+		
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Hamburguer's Caioba</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html"><b>Home</b></a>
+                    </li>
+					<li><a href="sobre.html"><b>Sobre</b></a>
+                    </li>
+                    <li><a href="galeria.html"><b>Galeria</b></a>
+                    </li>
+                    <li><a href="pedido.html"><b>Pedido</b></a>
+                    </li>
+					<li><a href="contato.html"><b>Contato</b></a>
+                    </li>
+					<li><a href="cupons.html"><b>Cupons</b></a>
+                    </li>
+					<li><a href="emprego.html"><b>Emprego</b></a>
+                    </li>
+					<li><a href="perguntas.html"><b>Perguntas</b></a>
+                    </li>
+                </ul>
+            </div>
+			
+			
+			
+			
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+	
+	
+	
+	        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                   
+                    <h2 class="intro-text text-center"><div class="well">Faça <strong><mark>Contato</mark></strong></div>
+                    </h2>
+                  
+                   
+					<form name = "form2">
+                        <div class="row">
+						<div class="formm">
+                            
+							<center><h1>Preencha os campos para fazer contato</h1></center>
+							<br>
+							<p><center>Faça sua boquinha com a ajuda do <abbr title="Hamburguer's Caioba">Caioba</abbr>, a melhor sanduícheria da região, calcule o preço do pedido nos campos abaixo e entraremos em contato:</center></p>
+							<br>
+							<div class="form-group col-lg-4">
+                            <label>Nome</label>
+                            <input type="text" class="form-control" name = "nome">
+                            </div>
+							
+							<div class="form-group col-lg-3">
+                            <label>Telefone</label>
+                            <input type="tel" class="form-control" name = "telefone">
+                            </div>
+							
+							<div class="form-group col-lg-5">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name = "email">
+                            </div>
+							
+							<div class = "clearfix"></div>
+							
+							<div class="form-group col-lg-12">
+                            <label>Endereço</label>
+                            <input type="text" class="form-control" name = "endereco">
+                            </div>
+							
+							<div class = "clearfix"></div>
+							
+							<div class="form-group col-lg-6">
+                            <label>Retorno de Chamado</label>
+							<select class="form-control" name = "chamado" required>
+                            <option value = "Whatsapp">Mensagem de Whatsapp</option>
+                            <option value = "Ligação">Ligação Telefonica</option>
+							<option value = "Email">Email</option>
+                            </select>
+                            </div>
+							
+							<div class="form-group col-lg-6">
+                            <label>Tipo de Chamado</label>
+							<select class="form-control" name = "reclamacao" required>
+                            <option value = "Pedido">Pedido</option>
+                            <option value = "Duvida">Duvida</option>
+							<option value = "Sugestao">Sugestão</option>
+							<option value = "Reclamacao">Reclamação</option>
+                            </select>
+                            </div>
+                            
+							<div class = "clearfix"></div>
+							
+							<div class = "clearfix"></div>
+							<div class="form-group col-lg-1"></div>
+							<div class="form-group col-lg-10">
+							
+							<label>Escreva seu Chamado</label>
+							<textarea input type="text" class="form-control" name = "obser"></textarea>
+                          
+							
+							</div>
+							<div class="form-group col-lg-1"></div>
+							<div class = "clearfix"></div>
+							
+							<div class="form-group col-lg-4"></div>
+							<div class="form-group col-lg-4">
+							<div align = "center">
+							<input type = button value = "Enviar" class = "btn btn-success" onmousedown="calcular(nome.value,telefone.value,email.value,endereco.value,obser.value)">
+							
+                           <button type="reset" class="btn btn-danger">Limpar</button>
+							</div>
+							</div>
+							<div class="form-group col-lg-4"></div>
+							<div class = "clearfix"></div>
+							<div class="form-group col-lg-2">
+						
+							<a href="https://www.instagram.com/?hl=pt-br"><img src="contatoloja/instagram.jpg" target="_blank" class="media-object img-circle"></a>
+							</div>
+							<div class="form-group col-lg-8">
+							 </div>
+							<div class="form-group col-lg-2">
+<a href="https://pt-br.facebook.com/"><img src="contatoloja/facebook.png" target="_blank" class="media-object img-circle"></a>
+							</div>
+							<div class = "clearfix"></div>
+							</div>
+                            </div>
+							
+							
+                            </div>
+							</div>
+                        </div>
+                    </form>
+					
+                
+          
+
+   
+    <!-- /.container -->
+
+<footer>
+        <div class="container">
+            <div class="row">
+			
+                <div class="col-lg-12 text-center">
+                  <p>Copyright &copy; Roberto (N°:46)</p>
+                </div>
+				
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+    // Activates the Carousel
+    $('.carousel').carousel({
+        interval: 5000
+    })
+    </script>
+
+</body>
+
+</html>
